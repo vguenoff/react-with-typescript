@@ -1,3 +1,8 @@
+body {
+  background-color: darkslategray;
+  color: lightgray;
+}
+
 a.active,
 a.pending {
   background-color: bisque !important;

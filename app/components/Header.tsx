@@ -1,17 +1,11 @@
 import { NavLink } from '@remix-run/react'
-import styles from './Header.module.css'
 import clsx from 'clsx'
+import styles from './Header.module.css'
 
-const nav: Record<string, string> = {
-  Home: '/',
-  Test: '/test',
-}
-
-export default function Header() {
+export default function Header({ nav }: { nav: Record }) {
   return (
     <div className={styles.header}>
-      <h1 className="text-3xl">React with TypeScript</h1>
-      <div className="pb-10 mt-5">
+      <div className="mt-5 pb-10">
         {Object.keys(nav).map(keyName => (
           <NavLink
             key={keyName}

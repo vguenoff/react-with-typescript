@@ -1,3 +1,5 @@
+import './global.css'
+import './tailwind.css'
 import {
   Links,
   Meta,
@@ -6,11 +8,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
-
 import Header from '~/components/Header'
-
-import './tailwind.css'
-import './global.css'
+import navigation from '~/navigation'
 
 export const meta: MetaFunction = () => {
   return [
@@ -30,7 +29,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div className="p-4">
-          <Header />
+          <h1 className="text-3xl">React with TypeScript</h1>
+          <Header nav={navigation.main} />
           {children}
         </div>
         <ScrollRestoration />
