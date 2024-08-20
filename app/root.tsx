@@ -1,11 +1,23 @@
 import {
   Links,
   Meta,
+  MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
-import "./tailwind.css";
+} from '@remix-run/react'
+
+import Header from '~/components/Header'
+
+import './tailwind.css'
+import './global.css'
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'React with TypeScript' },
+    { name: 'description', content: 'React with TypeScript' },
+  ]
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,14 +29,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div className="p-4">
+          <Header />
+          {children}
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
-  return <Outlet />;
+  return <Outlet />
 }
