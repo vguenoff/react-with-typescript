@@ -55,10 +55,32 @@ export default function TypescriptAdvanced() {
 
   console.log(car)
 
+  // Literal types
+  type Direction = 'north' | 'south'
+  const direction: Direction = 'north'
+
+  // Intersection types
+  type A = { a: string }
+  type B = {
+    b: string
+    //  a: number
+  }
+  type C = A & B
+
+  const value: C = {
+    a: 'a',
+    b: 'b',
+  }
+
+  // Type Assertions and Casting
+  const someValue: any = 'this is a string'
+  const strLength: number = (someValue as string).length
+
   return (
     <>
       <h2 className="text-1xl">Advanced Types</h2>▶ <code>Open the code</code>
       <p>{theme === 'DARK' ? 'Light' : 'Dark'} theme</p>
+      <p>{direction}</p>
     </>
   )
 }
