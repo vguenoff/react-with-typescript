@@ -44,6 +44,63 @@ export default function FunctionsTS() {
   returnArrowVoid()
 
   // unknown
+  // function unknownFunction(a: unknown) {
+  //   return a + 10
+  // }
+
+  // never
+  // function neverReturnAValue(): never {
+  //   throw new Error('error')
+  // }
+
+  // function neverIsTricky(x: string | number) {
+  //   if (typeof x === 'string') {
+  //     console.log('do something string')
+  //   } else if (typeof x === 'number') {
+  //     console.log('do something number')
+  //   } else {
+  //     return x;
+  //   }
+  // }
+
+  // Function global type
+  // function functionGlobalType(func: Function) {
+  //   return func(1, 2)
+  // }
+
+  // Rest parameters
+  function restParameters(n: number, ...m: number[]) {
+    return m.map(x => x + n)
+  }
+
+  const a = restParameters(10, 1, 2, 3)
+  console.log(a)
+
+  // Parameter destruction
+  type Params = {
+    a: number
+    b: number
+    c: string
+  }
+
+  function parameterDestruction({ a, b, c }: Params) {
+    console.log(a, b, c)
+  }
+
+  // Function overloading
+
+  function combine(a: number, b: number): number
+  function combine(a: string, b: string): string
+  function combine(a: any, b: any) {
+    if (typeof a === 'number' && typeof b === 'number') {
+      return a + b
+    } else if (typeof a === 'string' && typeof b === 'string')
+      return a + ' ' + b
+  }
+
+  console.log(combine(1, 2))
+  console.log(combine('Hello', 'World'))
+  console.log(combine('Hello', 2))
 
   return (
     <>
